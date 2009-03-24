@@ -2,12 +2,18 @@
 # Makefile for helper code (easy hints, how-tos and common code)
 #
 
-helper-print-from-stdin.out: helper-print-from-stdin.o
-	gcc -o helper-print-from-stdin.out helper-print-from-stdin.o
-helper-print-from-stdin.o: helper-print-from-stdin.c
-	gcc -c helper-print-from-stdin.c
+all: print-from-stdin.out \
+	print-from-cmdline.out
 
-all: helper-print-from-stdin.out
+print-from-stdin.out: print-from-stdin.o
+	gcc -o print-from-stdin.out print-from-stdin.o
+print-from-stdin.o: print-from-stdin.c
+	gcc -c print-from-stdin.c
+
+print-from-cmdline.out: print-from-cmdline.o
+	gcc -o print-from-cmdline.out print-from-cmdline.o
+print-from-cmdline.o: print-from-cmdline.c
+	gcc -c print-from-cmdline.c
 
 .PHONY:	clean
 
